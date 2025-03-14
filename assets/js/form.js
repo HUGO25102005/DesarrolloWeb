@@ -60,7 +60,7 @@ function removeClass(elementId) {
     element.classList.remove(...alert);
 }
 
-document.addEventListener('submit', (event) => {
+document.getElementById('registro-form').addEventListener('submit', (event) => {
     event.preventDefault();
     validateForm();
     const formData = new FormData(form);
@@ -72,6 +72,26 @@ document.addEventListener('submit', (event) => {
 
     const jsonDataForm = JSON.stringify(data);
     console.log(jsonDataForm);
+
+    if (localStorage.getItem('panelistas') === null) {
+        let panelistas = [];
+        panelistas.push(alumno);
+        localStorage.setItem('panelistas', JSON.stringify(panelistas));
+    } else {
+        let panelistas = JSON.parse(localStorage.getItem('panelistas'));
+        panelistas.push(alumno);
+        localStorage.setItem('panelistas', JSON.stringify(panelistas));
+    }
+
+    // Mostrar mensaje que sí se guardó
+    alert('Registro realizado con éxito');
+
+    // Resetear el formulario
+    document.getElementById('formularioRegistro').reset();
+
+    // Mostrar el objeto en la consola
+    console.log('Alumno registrado:', alumno);
+    //haz un console log de lo que hay en localstorage
 });
 
 
@@ -99,4 +119,9 @@ if (alertTrigger) {
     alertTrigger.addEventListener('click', () => {
         appendAlert('Nice, you triggered this alert message!', 'success')
     })
+}
+
+
+const clearForm = () => {
+    form.reset();
 }
