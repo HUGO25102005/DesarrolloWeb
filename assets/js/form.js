@@ -91,7 +91,9 @@ document.getElementById('registro-form').addEventListener('submit', (event) => {
 
     // Mostrar el objeto en la consola
     console.log('Alumno registrado:', alumno);
-    //haz un console log de lo que hay en localstorage
+    
+    // Redirigir a la página de listado
+    window.location.href = 'listado.html';
 });
 
 
