@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad con JavaScript</title>
+</head>
+<body>
+    <h2>Actividad con JavaScript</h2>
+    <button onclick="ejecutarActividad()">Ejecutar Actividad</button>
+    <script>
+        function ejecutarActividad() {
+            // 1. Leer dos números del usuario utilizando prompt
+            let num1 = parseFloat(prompt("Ingresa el primer número:"));
+            let num2 = parseFloat(prompt("Ingresa el segundo número:"));
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Debes ingresar números válidos.");
+                return;
+            }
+
+            // 2. Realizar las operaciones básicas
+            let suma = num1 + num2;
+            let resta = num1 - num2;
+            let multiplicacion = num1 * num2;
+            let division = num2 !== 0 ? num1 / num2 : "No se puede dividir por cero";
+
+            // 3. Mostrar cuál es mayor
+            let mayor = (num1 > num2) ? num1 : (num1 < num2) ? num2 : "Son iguales";
+            alert(`El número mayor es: ${mayor}`);
+            console.log("El número mayor es:", mayor);
+
+            // 4. Asegurarse de que las variables sean números (convertimos en el paso 1)
+            
+            // 5. Declarar un array, añadir y eliminar elementos
+            let numeros = [num1, num2];
+            console.log("Array original:", numeros);
+            
+            // Agregamos la suma y multiplicación al array
+            numeros.push(suma, multiplicacion);
+            
+            // Eliminamos el primer elemento
+            numeros.shift();
+            
+            console.log("Array modificado:", numeros);
+
+            // 6. Imprimir el array original y el modificado
+            alert(`Array modificado: ${numeros.join(", ")}`);
+        }
+    </script>
+</body>
+</html>
